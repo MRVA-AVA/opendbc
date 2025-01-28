@@ -127,7 +127,8 @@ def fingerprint(can_recv: CanRecvCallable, can_send: CanSendCallable, set_obd_mu
   # CAN fingerprint
   # drain CAN socket so we get the latest messages
   can_recv()
-  car_fingerprint, finger = can_fingerprint(can_recv)
+  finger = {i: {} for i in range(8)}
+  # car_fingerprint, finger = can_fingerprint(can_recv)
 
   exact_match = True
   source = CarParams.FingerprintSource.can
