@@ -2,11 +2,43 @@
 from inputs import get_gamepad
 import numpy as np
 import time
+import argparse
+import curses
 
 from opendbc.car.structs import CarControl
 from opendbc.car.panda_runner import PandaRunner
 
 import threading
+
+class Keyboard:
+  def __init__(self):
+    self.state = {'accel': 0, 'steer': 0}
+    self.running = True  # To manage the thread's lifecycle
+
+  def update(self, stdscr):
+    stdscr.nodelay(True)  # Make getch non-blocking
+    stdscr.addstr("Press 'w' to accelerate, 's' to brake, 'a' to steer left, 'd' to steer right. Press 'q' to quit.\n")
+    while self.running:
+      try:
+        key = stdscr.getch()
+        if key == ord('w'):
+          self.state['accel'] = 1
+        elif key == ord('s'):
+          self.state['accel'] = -1
+        elif key == ord('a'):
+          self.state['steer'] = -1
+        elif key == ord('d'):
+          self.state['steer'] = 1
+        elif key == ord('q'):
+          self.running = False  # Exit the loop on 'q'
+        else:
+          self.state['accel'] = 0
+          self.state['steer'] = 0
+        time.sleep(0.05)  # Small delay to reduce CPU usage
+      except Exception as e:
+          stdscr.addstr(f"Error: {e}\n")
+          self.running = False
+          break
 
 class Joystick:
   def __init__(self):
@@ -23,6 +55,7 @@ class Joystick:
     self.axes_values = {self.throttle_axis: 0., self.brake_axis: 0., self.steer_axis: 0.}
 
     self.state = {'accel': 0, 'steer': 0}
+    self.running = True  # To manage the thread's lifecycle
 
   def update(self):
     for joystick_event in get_gamepad():
@@ -50,23 +83,43 @@ class Joystick:
         self.state['steer'] = self.axes_values[self.steer_axis]
         continue
 
+def keyboard_thread(keyboard):
+  curses.wrapper(keyboard.update)
+
 def joystick_thread(joystick):
-  while True:
+  while joystick.running:
     joystick.update()
 
-def main(joystick):
-  threading.Thread(target=joystick_thread, args=(joystick,)).start()
+def main(controller):
+  try:
+    with PandaRunner() as p:
+      CC = CarControl(enabled=False)
+      while controller.running:
+        CC.actuators.accel = float(np.clip(controller.state['accel'], -1, 1))
+        CC.actuators.steer = float(100*np.clip(controller.state['steer'], -1, 1))
 
-  CC = CarControl(enabled=False)
-  with PandaRunner() as p:
-    while True:
-      CC.actuators.accel = float(np.clip(joystick.state['accel'], -1, 1))
-      CC.actuators.steer = float(np.clip(joystick.state['steer'], -1, 1))
-      # print(CC)
-      # p.read()
-      p.write(CC)
-      time.sleep(0.01)
+        # p.read()
+        p.write(CC)
+
+        time.sleep(0.01)
+
+        # print(controller.state)
+  except KeyboardInterrupt:
+      controller.running = False
+  print("Exiting...")
+
 
 if __name__ == '__main__':
-  joystick = Joystick()
-  main(joystick)
+    parser = argparse.ArgumentParser(description='Test the car interface with a joystick or keyboard.',
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('--mode', choices=['keyboard', 'joystick'], default='keyboard')
+    args = parser.parse_args()
+
+    if args.mode == 'keyboard':
+        controller = Keyboard()
+        threading.Thread(target=keyboard_thread, args=(controller,), daemon=True).start()
+    elif args.mode == 'joystick':
+        controller = Joystick()
+        threading.Thread(target=joystick_thread, args=(controller,), daemon=True).start()
+
+    main(controller)
