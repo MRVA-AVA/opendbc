@@ -81,8 +81,8 @@ def main(joystick):
   with PandaRunner() as p:
     CC = CarControl(enabled=False)
     while True:
-      CC.actuators.accel = float(4.0*np.clip(joystick.axes_values['ABS_Y'], -1, 1))
-      CC.actuators.steer = float(np.clip(joystick.axes_values['ABS_RX'], -1, 1))
+      CC.actuators.accel = float(4.0*np.clip(joystick.axes_values['gb'], -1, 1))
+      CC.actuators.steer = float(np.clip(joystick.axes_values['steer'], -1, 1))
       pprint(CC)
 
       p.read()
