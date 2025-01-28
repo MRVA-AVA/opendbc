@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from opendbc.car import Platforms, PlatformConfig, DbcDict, Bus, CarSpecs
+from enum import IntEnum
 
 @dataclass
 class AvaCarDocs:
@@ -8,6 +9,12 @@ class AvaCarDocs:
 @dataclass
 class AvaPlatformConfig(PlatformConfig):
   dbc_dict: DbcDict = field(default_factory=lambda: {Bus.pt: 'ava_pt'})
+
+class DriveMode(IntEnum):
+  FORWARD_DRIVE = 1
+  REVERSE_DRIVE = 2
+  PARK = 3
+  NEUTRAL = 4
 
 class CAR(Platforms):
   AVA = AvaPlatformConfig(
