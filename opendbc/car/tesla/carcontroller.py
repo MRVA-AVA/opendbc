@@ -50,8 +50,8 @@ class CarController(CarControllerBase):
       can_sends.append(self.tesla_can.create_longitudinal_command(13, 0,  cntr, False))
 
     # TODO: HUD control
-    new_actuators = actuators.as_builder()
-    new_actuators.steeringAngleDeg = self.apply_angle_last
+    new_actuators = 0
+    # new_actuators.steeringAngleDeg = self.apply_angle_last
 
     self.frame += 1
     return new_actuators, can_sends
