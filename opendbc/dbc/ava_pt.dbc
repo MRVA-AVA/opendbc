@@ -1,0 +1,140 @@
+VERSION ""
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ Header : 0|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Message_Type : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Message_Length : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Left_Y_Joystick : 6|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Left_Z_Joystick : 8|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Left_Button_Values : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_Button_Values : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_X_Joystick : 10|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_Y_Joystick : 12|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Left_X_Joystick : 4|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_Z_Joystick : 14|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ left : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Vehicle_Safety_Controller_Mode : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Autonomy_Mode : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ E_Stop_Indication : 16|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Header1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Header2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Header3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Key_Number : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Contact_State : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ KeyPad_Identifier : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Heartbeat : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Steering_Power_Relay : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_Power_Relay : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Tow_Relay : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Trottle_Relay : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Forward_Relay : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Reverse_Relay_Backup_Lights : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Brake_Lights : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Roof_Preception : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Roof_Coms : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DLAP : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Seat_Belt_Switch : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Hand_EBrake_Switch : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Heartbeat : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 300 AutonomousAutoFunctions: 8 Vector__XXX
+ SG_ Left_Turn_Signal : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Right_Turn_Signal : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Low_Beam : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ High_Beam : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Running_Lights : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Horn : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 259 Navitas: 8 Vector__XXX
+ SG_ DirectionState : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WheelSpeed_Intel : 24|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ WheelSpeedMotorola : 31|16@0- (1,0) [0|0] "" Vector__XXX
+
+BO_ 515 Navitas2: 8 Vector__XXX
+ SG_ Wheel_515_Speed_Intel : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Wheel_515_Speed_Motorola : 23|16@0- (1,0) [0|0] "" Vector__XXX
+ SG_ Wheel_515_Single : 16|8@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 301 AutonomousControls: 8 Vector__XXX
+ SG_ SteeringAngleRequest : 0|16@1- (0.1,0) [-23|23] "deg" Vector__XXX
+ SG_ ThrottleRequest : 16|16@1+ (0.1,0) [0|100] "percent" Vector__XXX
+ SG_ BrakeRequest : 32|16@1+ (1,0) [0|600] "PSI" Vector__XXX
+ SG_ AutonomousSystemHeartbeat : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ AutonomousSystemReady : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AutonomousSystemEStop : 57|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AutonomousSystemDirection : 58|3@1+ (1,0) [1|4] "" Vector__XXX
+
+BO_ 400 CommaAIFeedbackDynamics: 8 Vector__XXX
+ SG_ WheelSpeed : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ YawRate : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 401 CommaAIFeedbackControls: 8 Vector__XXX
+ SG_ DriversAccelPedalPercent : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DriversBrakePedalPressure : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringAngleDeg : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringRateDegPerSec2 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 402 CommaAIFeedbackStates: 8 Vector__XXX
+ SG_ CruiseState : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DirectionState : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LeftBlindSpot : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightBlindSpot : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ButtonEvent : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ GasPressed : 40|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BrakePressed : 41|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ParkingBrakeSet : 42|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StreetFaultTemporartu : 43|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StreetFaultPermanent : 44|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SteeringPressed : 45|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ epsDisabled : 46|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LeftBlinker : 48|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RightBlinker : 49|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DoorOpen : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SeatBeltUnlatched : 51|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ accFaulted : 52|1@1+ (1,0) [0|0] "" Vector__XXX
+
+
+
+CM_ SG_ 301 SteeringAngleRequest "Angle Request in tenth of Deg (0-23)";
+CM_ SG_ 301 ThrottleRequest "Percent Throttle in tenths 0-100%";
+CM_ SG_ 301 BrakeRequest "BrakeDeceleration in hundreths m/s2";
+CM_ SG_ 301 AutonomousSystemHeartbeat "Counter to 255";
+CM_ SG_ 301 AutonomousSystemReady "True when Autonomous system is ready";
+CM_ SG_ 301 AutonomousSystemEStop "True When E_Stop is Requested";
+CM_ SG_ 301 AutonomousSystemDirection "Direction State: 1=Forward, 2=Reverse, 3=Park, 4=Nutral";
