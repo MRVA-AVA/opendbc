@@ -53,7 +53,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ Autonomy_Mode : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ E_Stop_Indication : 16|32@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Header1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Header2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+SG_ Header2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Header3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Key_Number : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Contact_State : 32|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -71,7 +71,7 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ DLAP : 15|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Seat_Belt_Switch : 16|1@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Hand_EBrake_Switch : 17|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Heartbeat : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Heartbeat2 : 0|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 300 AutonomousAutoFunctions: 8 Vector__XXX
  SG_ Left_Turn_Signal : 0|1@1+ (1,0) [0|0] "" Vector__XXX
