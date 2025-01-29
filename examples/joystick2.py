@@ -5,6 +5,8 @@ import time
 import argparse
 import curses
 
+from panda import Panda
+
 from opendbc.car.structs import CarControl
 from opendbc.car.panda_runner import PandaRunner
 
@@ -105,6 +107,8 @@ def mock_thread(mock):
 def main(controller):
   try:
     with PandaRunner() as p:
+      p.p.can_clear(0xFFFF)
+      p.p.set_safety_mode(Panda.SAFETY_ALLOUTPUT)
       CC = CarControl(enabled=False)
       while controller.running:
         CC.actuators.accel = float(np.clip(controller.state['accel'], -1, 1))
