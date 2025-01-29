@@ -10,6 +10,14 @@ from opendbc.car.panda_runner import PandaRunner
 
 import threading
 
+class Mock:
+  def __init__(self):
+    self.state = {'accel': 0, 'steer': 0}
+    self.running = True
+
+  def update(self):
+    time.sleep(100)
+
 class Keyboard:
   def __init__(self):
     self.state = {'accel': 0, 'steer': 0}
@@ -90,6 +98,10 @@ def joystick_thread(joystick):
   while joystick.running:
     joystick.update()
 
+def mock_thread(mock):
+  while mock.running:
+    mock.update()
+
 def main(controller):
   try:
     with PandaRunner() as p:
@@ -102,8 +114,6 @@ def main(controller):
         p.write(CC)
 
         time.sleep(0.01)
-
-        # print(controller.state)
   except KeyboardInterrupt:
       controller.running = False
   print("Exiting...")
@@ -112,7 +122,7 @@ def main(controller):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Test the car interface with a joystick or keyboard.',
                                      formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--mode', choices=['keyboard', 'joystick'], default='keyboard')
+    parser.add_argument('--mode', choices=['keyboard', 'joystick', 'mock'], default='keyboard')
     args = parser.parse_args()
 
     if args.mode == 'keyboard':
@@ -121,5 +131,8 @@ if __name__ == '__main__':
     elif args.mode == 'joystick':
         controller = Joystick()
         threading.Thread(target=joystick_thread, args=(controller,), daemon=True).start()
+    elif args.mode == 'mock':
+        controller = Mock()
+        threading.Thread(target=mock_thread, args=(controller,), daemon=True).start()
 
     main(controller)

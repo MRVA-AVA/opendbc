@@ -1,4 +1,4 @@
-from opendbc.car import structs
+from opendbc.car import structs, get_safety_config
 from opendbc.car.interfaces import CarInterfaceBase
 
 class CarInterface(CarInterfaceBase):
@@ -6,6 +6,7 @@ class CarInterface(CarInterfaceBase):
   @staticmethod
   def _get_params(ret: structs.CarParams, candidate, fingerprint, car_fw, experimental_long, docs) -> structs.CarParams:
     ret.carName = "ava"
+    ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.ava)]
 
     # Needs safety validation and final testing before pulling out of dashcam
     ret.dashcamOnly = True
