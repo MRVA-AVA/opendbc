@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from opendbc.car import Platforms, PlatformConfig, DbcDict, Bus, CarSpecs
+from opendbc.car.structs import CarState
 from enum import IntEnum
 
 @dataclass

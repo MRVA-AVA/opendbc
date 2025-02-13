@@ -17,11 +17,11 @@ class CarController(CarControllerBase):
     brake = 0
     steering = actuators.steeringAngleDeg
     if (actuators.accel > 0.0):
-        throttle = actuators.accel
+        throttle = 1000*actuators.accel
         brake = 0
     else:
         throttle = 0
-        brake = -actuators.accel
+        brake = -1500*actuators.accel
 
     can_sends.append(self.ava_can.create_auto_command(throttle, brake, steering))
 

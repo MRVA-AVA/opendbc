@@ -112,9 +112,9 @@ def main(controller):
       CC = CarControl(enabled=False)
       while controller.running:
         CC.actuators.accel = float(np.clip(controller.state['accel'], -1, 1))
-        CC.actuators.steer = float(np.clip(controller.state['steer'], -1, 1))
+        CC.actuators.steeringAngleDeg = float(np.clip(controller.state['steer'], -1, 1))
 
-        # p.read()
+        p.read(strict=False)
         p.write(CC)
 
         time.sleep(0.01)
