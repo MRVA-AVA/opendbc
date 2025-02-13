@@ -55,6 +55,10 @@ tesla:
   - changed-files:
     - any-glob-to-any-file: 'opendbc/car/tesla/**'
 
+ava:
+  - changed-files:
+    - any-glob-to-any-file: 'opendbc/car/ava/**'
+
 toyota:
   - changed-files:
     - any-glob-to-any-file: 'opendbc/car/toyota/**'
