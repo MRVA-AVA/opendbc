@@ -1,4 +1,4 @@
-from opendbc.car.tesla.values import CAR
+from opendbc.car.ava.values import CAR
 
 FINGERPRINTS = {
   CAR.AVA: [{
