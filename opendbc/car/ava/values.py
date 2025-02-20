@@ -18,7 +18,7 @@ class DriveMode(IntEnum):
   NEUTRAL = 4
 
 class CAR(Platforms):
-  AVA = AvaPlatformConfig(
+  AVA_PT = AvaPlatformConfig(
     [],
     CarSpecs(mass=1899., wheelbase=2.875, steerRatio=12.0),
   )
