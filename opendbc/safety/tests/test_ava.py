@@ -95,7 +95,7 @@ class TestAVASafety(PandaCarSafetyTest):
 
     def test_fwd_hook(self):
         result = self.safety.safety_fwd_hook(0, 0x300)
-        self.assertEqual(result, 2, "ava_fwd_hook should always return -1")
+        self.assertEqual(result, -1, "ava_fwd_hook should always return -1")
 
 if __name__ == '__main__':
     unittest.main()

@@ -12,7 +12,6 @@ class CarInterface(CarInterfaceBase):
     ret.openpilotLongitudinalControl = True
     ret.steerLimitTimer = 1.0
 
-    # ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.ava)]
-    # ret.steerActuatorDelay = 0.25
+    ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.ava)]
 
     return ret

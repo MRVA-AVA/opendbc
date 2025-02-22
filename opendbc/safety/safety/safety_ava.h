@@ -7,8 +7,19 @@ static void ava_rx_hook(const CANPacket_t *to_push) {
 }
 
 static bool ava_tx_hook(const CANPacket_t *to_send) {
-  UNUSED(to_send);
-  return true;
+
+  bool ret = false;
+
+  int addr = GET_ADDR(to_send);
+
+  if (addr == 0x12C) {
+    ret = true;
+  } else if (addr == 0x12D){
+    ret = true;
+  }
+
+
+  return ret;
 }
 
 static int ava_fwd_hook(int bus_num, int addr) {
