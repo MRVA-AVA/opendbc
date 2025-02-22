@@ -17,7 +17,7 @@ class CarState(CarStateBase):
 
     # Vehicle State
     ret.vEgoRaw = can_parser.vl["AutonomousFeedbackDynamics"]["WheelSpeed"] * CV.MPH_TO_MS
-    ret.vEgo, ret.aEgo = CV.update_speed_kf(ret.vEgoRaw)
+    ret.vEgo, ret.aEgo = self.update_speed_kf(ret.vEgoRaw)
 
     # Gas Pedal
     ret.gasPressed = bool(can_parser.vl["AutonomousFeedbackStates"]["GasPressed"])
