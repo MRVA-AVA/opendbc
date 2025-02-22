@@ -9,7 +9,7 @@ class CarInterface(CarInterfaceBase):
     ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.ava)]
 
     # Needs safety validation and final testing before pulling out of dashcam
-    ret.dashcamOnly = True
+    ret.dashcamOnly = False
 
     ret.steerLimitTimer = 1.0
     ret.steerActuatorDelay = 0.25
