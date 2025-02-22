@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from opendbc.car import Platforms, PlatformConfig, DbcDict, Bus, CarSpecs
-from opendbc.car.structs import CarState
 from enum import IntEnum
+from opendbc.car.docs_definitions import CarDocs, CarParts, CarHarness
 
 @dataclass
 class ControlRange:
@@ -10,8 +10,9 @@ class ControlRange:
   MAX_STEER: float = 20.0
 
 @dataclass
-class AvaCarDocs:
+class AvaCarDocs(CarDocs):
   package: str = "All"
+  car_parts: CarParts = field(default_factory=CarParts.common([CarHarness.ava_pt]))
 
 @dataclass
 class AvaPlatformConfig(PlatformConfig):
