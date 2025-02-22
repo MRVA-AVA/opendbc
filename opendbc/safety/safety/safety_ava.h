@@ -21,8 +21,7 @@ static int ava_fwd_hook(int bus_num, int addr) {
 
 static safety_config ava_init(uint16_t param) {
   UNUSED(param);
-  safety_config ret;
-  return ret;
+  return (safety_config){NULL, 0, NULL, 0};
 }
 
 const safety_hooks ava_hooks = {

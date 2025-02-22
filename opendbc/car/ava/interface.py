@@ -7,7 +7,7 @@ class CarInterface(CarInterfaceBase):
     ret.brand = "ava"
     ret.steerControlType = structs.CarParams.SteerControlType.angle
     ret.transmissionType = structs.CarParams.TransmissionType.direct
-    ret.dashcamOnly = False
+    ret.dashcamOnly = True
     ret.radarUnavailable = True
     ret.openpilotLongitudinalControl = True
     ret.steerLimitTimer = 1.0
