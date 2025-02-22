@@ -15,6 +15,7 @@ from opendbc.car.toyota.values import CAR as TOYOTA
 from opendbc.car.values import Platform
 from opendbc.car.volkswagen.values import CAR as VOLKSWAGEN
 from opendbc.car.body.values import CAR as COMMA
+from opendbc.car.ava.values import CAR as AVA
 
 # FIXME: add routes for these cars
 non_tested_cars = [
@@ -30,6 +31,7 @@ non_tested_cars = [
   TESLA.TESLA_MODEL_3,
   TESLA.TESLA_MODEL_Y,
   RIVIAN.RIVIAN_R1_GEN1,
+  AVA.AVA_PT,
 ]
 
 
