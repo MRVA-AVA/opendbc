@@ -5,12 +5,9 @@ from enum import IntEnum
 
 @dataclass
 class ControlRange:
-  MIN_THROTTLE: float = 0.0
   MAX_THROTTLE: float = 100.0
-  MIN_BRAKE: float = 0.0
   MAX_BRAKE: float = 600.0
-  MIN_STEER: float = -12.5
-  MAX_STEER: float = 12.5
+  MAX_STEER: float = 20.0
 
 @dataclass
 class AvaCarDocs:
