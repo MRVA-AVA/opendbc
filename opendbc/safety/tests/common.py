@@ -756,6 +756,9 @@ class PandaSafetyTest(PandaSafetyTestBase):
             # No point in comparing different Tesla safety modes
             if 'Tesla' in attr and 'Tesla' in current_test:
               continue
+            # No point in comparing different Ava safety modes
+            if'Ava' in attr and 'Ava' in current_test:
+              continue
             # No point in comparing to ALLOUTPUT which allows all messages
             if attr.startswith('TestAllOutput'):
               continue
