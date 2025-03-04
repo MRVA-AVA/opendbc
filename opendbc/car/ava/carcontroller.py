@@ -15,7 +15,7 @@ class CarController(CarControllerBase):
 
     throttle = actuators.accel if actuators.accel > 0.0 else 0.0
     brake = abs(actuators.accel) if actuators.accel < 0.0 else 0.0
-    steer = actuators.steer
+    steer = actuators.steeringAngleDeg
 
     # TODO (moises): Find vehicle model to convert from acceleration to throttle and brake
     # Acceleration is in the positive direction is expected to be in the range [0 2.0] m/s^2
