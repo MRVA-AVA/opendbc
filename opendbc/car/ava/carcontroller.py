@@ -29,7 +29,7 @@ class CarController(CarControllerBase):
     new_actuators = actuators.as_builder()
     new_actuators.gas = throttle
     new_actuators.brake = brake
-    new_actuators.steerOutputCan = steer
+    # new_actuators.steerOutputCan = steer
 
     return new_actuators, can_sends
 
