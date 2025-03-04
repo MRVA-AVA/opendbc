@@ -22,6 +22,7 @@ class CarController(CarControllerBase):
     throttle = throttle / 2.0 # Convert to percentage
     # Brake is in the negative direction is expected to be in the range [0 -3.5] m/s^2
     brake = brake / 3.5 # Convert to percentage
+    steer = steer / 10.0 # Convert to percentage
 
     can_sends = []
     can_sends.append(self.ava_can.create_auto_command(throttle, brake, steer))
