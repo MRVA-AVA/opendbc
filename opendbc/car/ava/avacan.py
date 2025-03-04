@@ -9,7 +9,7 @@ class AvaCan:
   def create_auto_command(self, throttle: float, brake: float, steer: float):
     throttle = np.clip(throttle, 0.0, 1.0) * ControlRange.MAX_THROTTLE
     brake = np.clip(brake, 0.0, 1.0) * ControlRange.MAX_BRAKE
-    steer = 2.0 * np.clip(steer - 0.5, -0.5, 0.5) * ControlRange.MAX_STEER
+    # steer = 2.0 * np.clip(steer - 0.5, -0.5, 0.5) * ControlRange.MAX_STEER
 
     throttle = 0.0 if brake > 0.0 else throttle
 
