@@ -9,7 +9,7 @@ class CarInterface(CarInterfaceBase):
     ret.transmissionType = structs.CarParams.TransmissionType.direct
     ret.dashcamOnly = False
     ret.radarUnavailable = True
-    ret.openpilotLongitudinalControl = True
+    ret.openpilotLongitudinalControl = False
     ret.steerLimitTimer = 1.0
 
     ret.safetyConfigs = [get_safety_config(structs.CarParams.SafetyModel.ava)]
